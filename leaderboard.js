@@ -1,3 +1,4 @@
+<<<<<<< HEAD
 // We don't use the 'var' keyword below, because we want to create
 // a global variable.
 PlayersList = new Mongo.Collection('players');
@@ -97,4 +98,20 @@ if(Meteor.isClient){
           PlayersList.update(selectedPlayer, {$inc: {score: -5} });
       }
   });
+=======
+PlayersList = new Mongo.Collection('players');
+ 
+console.log("Hello world");
+ 
+if (Meteor.isClient) {
+  Template.leaderboard.helpers({
+    'player': function(){
+      return "Some other text"
+  }
+});
+}
+
+if(Meteor.isServer) {
+	
+>>>>>>> 3ee319b526b1491737f33b4f6a20dce08cc79658
 }
