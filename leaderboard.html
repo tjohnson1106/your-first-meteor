@@ -1,0 +1,27 @@
+<head>
+  <title>Leaderboard</title>
+</head>
+
+<body>
+  <h1>The Leaderboard</h1>
+<!-- in order to make our template "appear", we have to inject it into
+the body.  The Meteor templating system uses "Spacebars" syntax. -->
+  {{> leaderboard }}
+</body>
+
+<template name="leaderboard">
+<!-- If we leave the code below as {{ player }}, the result is: [object Object].
+ We need to create an each block.  -->
+  <ul>
+    {{#each player}}
+      <!-- we should add a class to our li element, so we can target it specifically. -->
+      <!-- We need need to place a reference to the "selectClass" function inside of our
+      li element's class attribute -->
+      <li class="player {{selectedClass}}">{{name}}: {{score}}</li>
+    {{/each}}
+  </ul>
+    <input type="button" class="increment" value="Give 5 Points">
+    <input type="button" class="decrement" value="Take 5 Points">
+    <p>Total number of players is: {{count}}</p>
+</template>
+
